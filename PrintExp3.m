@@ -25,18 +25,58 @@ fclose('all');
 [y4_S,y4_E,y4_N,y4_I,y4_R,y4_D] = deal(y4{:});
 [y5_S,y5_E,y5_N,y5_I,y5_R,y5_D] = deal(y5{:});
 [y6_S,y6_E,y6_N,y6_I,y6_R,y6_D] = deal(y6{:});
+%Simulation
+y1_S = smooth(y1_S);
+y1_E = smooth(y1_E);
 y1_I = smooth(y1_I);
+y1_R = smooth(y1_R);
+y1_D = smooth(y1_D);
+
+y2_S = smooth(y2_S);
+y2_E = smooth(y2_E);
 y2_I = smooth(y2_I);
+y2_R = smooth(y2_R);
+y2_D = smooth(y2_D);
+
+y3_S = smooth(y3_S);
+y3_E = smooth(y3_E);
 y3_I = smooth(y3_I);
+y3_R = smooth(y3_R);
+y3_D = smooth(y3_D);
+%Ana
+y4_S = smooth(y4_S);
+y4_E = smooth(y4_E);
 y4_I = smooth(y4_I);
+y4_R = smooth(y4_R);
+y4_D = smooth(y4_D);
+
+y5_S = smooth(y5_S);
+y5_E = smooth(y5_E);
 y5_I = smooth(y5_I);
+y5_R = smooth(y5_R);
+y5_D = smooth(y5_D);
+
+y6_S = smooth(y6_S);
+y6_E = smooth(y6_E);
 y6_I = smooth(y6_I);
-%Modified simation 
+y6_R = smooth(y6_R);
+y6_D = smooth(y6_D);
+%Modified simation
 figure(1)
-plot(x,y1_I,'k', x,y2_I,'r', x,y3_I,'b',...
-     x,y4_I,'k+', x,y5_I,'r+', x,y6_I,'b+');
+plot(...
+     x,y3_S,'k',x,y3_E,'r', x,y3_I,'b', x,y3_R,'g', x,y3_D,'c',...
+     x,y6_S,'k+',x,y6_E,'r+', x,y6_I,'b+', x,y6_R,'g+', x,y6_D,'c+');
 axis([0, 50, 0.0, 1.0]);
 xlabel('t(time)'); % x軸註解
 ylabel('The fraction of I'); % y軸註解
-title('Different Prob NI of SEIRD model'); % 圖形標題
-legend('0.3','0.6','0.9'); % 圖形註解
+title('Different P_{EI} of SEIRD model'); % 圖形標題
+
+figure(2)
+plot(x,y1_I,'k', x,y2_I,'r', x,y3_I,'b',...
+     x,y4_I,'k+', x,y5_I,'rs', x,y6_I,'bd');
+axis([0, 50, 0.0, 1.0]);
+xlabel('t(time)'); % x軸註解
+ylabel('The fraction of I'); % y軸註解
+title('Different P_{EI} of SEIRD model'); % 圖形標題
+legend('Sim P_{EI} = 0.2','Sim P_{EI} = 0.5','Sim P_{EI} = 0.9',...
+       'Ana P_{EI} = 0.2','Ana P_{EI} = 0.5','Ana P_{EI} = 0.9'); % 圖形註解
